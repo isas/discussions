@@ -132,7 +132,7 @@ code, kbd, samp {font-family:monospace; font-size:110%;}
     #strip #breadcrumbs {width:520px; margin:0; padding:0;}
     
     /* Strip - RSS */
-    #strip #rss {float:right; width:175px; _width:200px; margin:0; padding-left:25px; background:url("/images/ico_rss.gif") 0 50% no-repeat}
+    #strip #rss {float:right; width:175px; _width:200px; margin:0; padding-left:25px; padding-right: 16px;}
 
 /* Content */
 #content {float:left; width:530px; _width:550px; margin:0; padding:0 0 0 20px;}
@@ -209,3 +209,9 @@ code, kbd, samp {font-family:monospace; font-size:110%;}
     
     /*Login*/
     table.login tbody tr td{border-style: none;}
+    
+    /*Flashes*/
+    div#notice, div#error, div#warning{padding-left: 10px;margin:6px;}
+    div#notice {background-color:green;}
+    div#error, div#warning {background-color:red;}
+    div#flashes {display:block; margin-left: 11px; margin-right: 11px;}
