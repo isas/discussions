@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-language" content="cs" />
+    <meta name="robots" content="all,follow" />
+
+    <meta name="author" content="Andris Stikāns as06071, Ingus Skaistkalns is06103" />
+    
+    <title>Discssions</title>
+    <meta name="description" content="Discssions" />
+    <meta name="keywords" content="Discssions" />
+    
+    <%= stylesheet_link_tag "main" %>
+</head>
+
+<body id="www-url-cz">
+
+<!-- Main -->
+<div id="main" class="box">
+
+    <!-- Header -->
+    <div id="header">
+
+        <!-- Logotyp -->
+        <h1 id="logo"><a href="./" title="Home">Discssions<span></span></a></h1>
+        <hr class="noscreen" />          
+
+    </div> <!-- /header -->
+
+     <!-- Main menu (tabs) -->
+     <div id="tabs" class="noprint">
+
+        <ul class="box">
+            <li id="active"><a href="<%=sessions_path%>">Login<span class="tab-l"></span><span class="tab-r"></span></a></li>
+        </ul>
+
+     </div> <!-- /tabs -->
+
+    <!-- Page (2 columns) -->
+    <div id="page" class="box">
+    <div id="page-in" class="box">
+
+        <!-- Content -->
+        <div id="content">
+          
+          <%= yield -%>
+
+            
+            
+        </div> <!-- /content -->
+
+        <!-- Right column -->
+        <div id="col" class="noprint">
+            <div id="col-in">
+
+                <!-- About Me -->
+                <h3><span>About portal</span></h3>
+
+                <div id="about-me">
+                    <p>This is discussions portal</p>
+                </div> <!-- /about-me -->
+
+                <hr class="noscreen" />
+            
+            </div> <!-- /col-in -->
+        </div> <!-- /col -->
+
+    </div> <!-- /page-in -->
+    </div> <!-- /page -->
+
+    <!-- Footer -->
+    <div id="footer">
+        <div id="top" class="noprint"><p><span class="noscreen">Back on top</span> <a href="#header" title="Back on top ^">^<span></span></a></p></div>
+        <hr class="noscreen" />
+        
+        <p id="createdby">created by AS, IS</p>
+        <p id="copyright">&copy; 2011 <a href="andris.stikans@gmail.com">Andris Stikāns as06071</a>, <a href="ingus.skaistkalns@gmail.com">Ingus Skaistkalns is06103</a></p>
+    </div> <!-- /footer -->
+
+</div> <!-- /main -->
+
+</body>
+</html>
