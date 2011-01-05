@@ -214,4 +214,4 @@ code, kbd, samp {font-family:monospace; font-size:110%;}
     div#notice, div#error, div#warning{padding-left: 10px;margin:6px;}
     div#notice {background-color:green;}
     div#error, div#warning {background-color:red;}
-    div#flashes {display:block; margin-left: 11px; margin-right: 11px;}
+    div#flashes {display:block; margin:0px 14px 4px 15px}
