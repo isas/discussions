@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   
+  skip_before_filter :autentucated?, :only => [:new, :create]
+  
   def index
     @users = User.all
   end
@@ -10,6 +12,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    render :action => "new", :layout => false
   end
 
   def edit

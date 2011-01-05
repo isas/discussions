@@ -215,3 +215,11 @@ code, kbd, samp {font-family:monospace; font-size:110%;}
     div#notice {background-color:green;}
     div#error, div#warning {background-color:red;}
     div#flashes {display:block; margin:0px 14px 4px 15px}
+    
+    div.loading
+    {
+        background: transparent url(/images/loading.gif) no-repeat scroll 2px 0;
+        height: 33px;
+        width: 33px;
+        display: inline-block;
+    }
