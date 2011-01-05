@@ -17,14 +17,16 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    render :action => "edit", :layout => false
   end
 
   def create
+    layout = session[:user_id] ? "application" : "session"
     @user = User.new(params[:user])
     if @user.save
       redirect_to(@user, :notice => 'User was successfully created.')
     else
-      render :action => "new"
+      render :action => "new", :layout => layout
     end
   end
 
@@ -33,7 +35,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(params[:user])
       redirect_to(@user, :notice => 'User was successfully updated.')
     else
-      render :action => "edit"
+      render :action => "edit", :layout => false
     end
   end
 

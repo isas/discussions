@@ -223,3 +223,6 @@ code, kbd, samp {font-family:monospace; font-size:110%;}
         width: 33px;
         display: inline-block;
     }
+    
+    div.errors{color: red;}
+    div.fieldWithErrors{color:red;}

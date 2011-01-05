@@ -1,5 +1,7 @@
 <% form_for :user, @user, :url=>{:action =>"create", :controller =>"users"} do |f| %>
-  <%= f.error_messages %>
+<div class="errors">
+  <%= custom_error_messages_for([f.object]) %>
+</div>
 
   <p>
     <%= f.label :user_name %><br />
