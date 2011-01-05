@@ -93,14 +93,14 @@
             <div id="col-in">
 
                 <!-- About Me -->
-                <h3><span><a href="#">About Me</a></span></h3>
+                <h3><span>About Me</span></h3>
 
                 <div id="about-me">
                     <p><img src="/images/tmp_photo.gif" id="me" alt="Yeah, it´s me!" />
-                    <strong>John Doe</strong><br />
-                    Age: 26<br />
-                    Dallas, TX<br />
-                    <a href="#">Profile on MySpace</a></p>
+                    <strong><%=current_user.full_name%></strong><br />
+                    Login: <%=current_user.user_name%><br />
+                    Twitter: <%=current_user.twitter_name%><br />
+                    <a href="<%=user_path(current_user.id)%>">Show information</a></p>
                 </div> <!-- /about-me -->
 
                 <hr class="noscreen" />
