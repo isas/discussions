@@ -15,6 +15,7 @@ function register(){
         type: "GET",
         success: function(data) {
           $("div#content").html(data);
+          $(".article").fadeIn("slow");
         }
     });
     
@@ -36,6 +37,7 @@ function save_new_user()
       type: "post",
       success: function(data) {
         $("div#content").html(data);
+        $(".article").fadeIn("slow");
       }
     });
        

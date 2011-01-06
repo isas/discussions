@@ -1,4 +1,4 @@
-<div id="content">
+<div id="content" class="profile_info" style="display:none;">
 
   <div class="article">
     <h2 id="sub_header"><span><%=h @user.full_name %></span></h2>
@@ -27,7 +27,5 @@
       <b>Twitter name:</b>
       <%=h @user.twitter_name %>
     </p>
-
-    <%= link_to 'Back', users_path %>
   </div>
 </div>

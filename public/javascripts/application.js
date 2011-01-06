@@ -12,7 +12,7 @@ function show_profile_info()
       data: {},
       type: "get",
       success: function(data) {
-          var html = "<div title='Profile info'>"+data+"</div>";
+          var html = "<div class='profile' title='Profile info'>"+data+"</div>";
           $(html).dialog({
             modal: true, 
             width: 600, 
@@ -20,6 +20,7 @@ function show_profile_info()
             closeOnEscape: true, 
             position: 'top'
         });
+        $("div.profile_info").fadeIn("slow");
       }
     });
         
