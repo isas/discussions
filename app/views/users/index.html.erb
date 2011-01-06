@@ -1,3 +1,5 @@
+<%= javascript_include_tag "users" %>
+
 <div class="article">
   <h2 id="sub_header"><span>Users</span></h2>
 
@@ -18,14 +20,13 @@
         <td><%=h user.full_name %></td>
         <td><%=h user.email %></td>
         <td><%=h user.twitter_name %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Edit', edit_user_path(user), :id => "#{user.id}", :class=>"edit_user" %></td>
         <td><%= link_to 'Delete', user, :confirm => 'Are you sure?', :method => :delete %></td>
       </tr>
     <% end %>
+      <tr class="new_tr"><td colspan="7"><%= link_to 'New user', new_user_path, :id => "new_user" %></td></tr>
   </table>
 
   <br />
-
-  <%= link_to 'New user', new_user_path %>
 
 </div>

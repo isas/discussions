@@ -1,34 +1,6 @@
 <div class="article">
   <h2 id="sub_header"><span>New user</span></h2>
 
-  <% form_for :user, @user, :url=>{:action =>"create", :controller =>"users"} do |f| %>
-    <div class="errors">
-      <%= custom_error_messages_for([f.object]) %>
-    </div>
-
-    <p>
-      <%= f.label :user_name %> <span style="color:red;"> * </span><br />
-      <%= f.text_field :user_name %>
-    </p>
-    <p>
-      <%= f.label :password %><span style="color:red;"> * </span><br />
-      <%= f.text_field :password %>
-    </p>
-    <p>
-      <%= f.label :full_name %><span style="color:red;"> * </span><br />
-      <%= f.text_field :full_name %>
-    </p>
-    <p>
-      <%= f.label :email %><span style="color:red;"> * </span><br />
-      <%= f.text_field :email %>
-    </p>
-    <p>
-      <%= f.label :twitter_name %><br />
-      <%= f.text_field :twitter_name %>
-    </p>
-    <p>
-      <%= f.submit 'Create' %> <%= link_to 'Cancel', users_path %>
-    </p>
-  <% end %>
+  <%=  render :partial => "new", :locales => {:user => @user}%>
 
 </div>

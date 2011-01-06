@@ -7,6 +7,7 @@ function register(){
   $("a.register").live("click", function(){
     var $this = $(this);
     $("div#content").html("<div class='loading'></div>");
+    $("div#flashes").html("");
 
     $.ajax({
         url: "/users/new",

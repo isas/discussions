@@ -12,7 +12,12 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    render :action => "new", :layout => false
+    if session[:user_id].present?
+      render :partial => "new"
+    else
+      render :action => "new", :layout => false
+    end
+    
   end
 
   def edit
@@ -23,17 +28,26 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      flash[:notification] = "User was successfully created"
-      render :template => "sessions/index", :layout => false
+      if session[:user_id].present?
+        render :partial => "one_user"
+      else
+        flash[:notification] = "User was successfully created"
+        render :template => "sessions/index", :layout => false
+      end
     else
-      render :action => "new", :layout => false
+      if session[:user_id].present?
+        render :partial => "new"
+      else
+        render :action => "new", :layout => false
+      end
+      
     end
   end
 
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      redirect_to(@user, :notice => 'User was successfully updated.')
+      render :partial => "one_user"
     else
       render :action => "edit", :layout => false
     end

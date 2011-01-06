@@ -1,7 +1,9 @@
-<h1>Editing user</h1>
+<td class='td_edit' colspan='7' style='display:none;'>
 
 <% form_for(@user) do |f| %>
-  <%= f.error_messages %>
+  <div class="errors">
+      <%= custom_error_messages_for([f.object]) %>
+    </div>
 
   <p>
     <%= f.label :user_name %><br />
@@ -24,9 +26,8 @@
     <%= f.text_field :twitter_name %>
   </p>
   <p>
-    <%= f.submit 'Update' %>
+    <%= f.submit 'Update', :class => "edit_user_submit" %> <%= link_to 'Cancel', users_path, :class=>"cancel_edit", :id => "#{f.object.id}"%>
   </p>
 <% end %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+</td>

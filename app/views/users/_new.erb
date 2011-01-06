@@ -1,0 +1,41 @@
+<%if session[:user_id].present?%>
+  <td class='td_new' colspan='7' style='display:none;'>
+<%end%>
+
+<% form_for :user, @user, :url=>{:action =>"create", :controller =>"users"} do |f| %>
+    <div class="errors">
+      <%= custom_error_messages_for([f.object]) %>
+    </div>
+
+    <p>
+      <%= f.label :user_name %> <span style="color:red;"> * </span><br />
+      <%= f.text_field :user_name %>
+    </p>
+    <p>
+      <%= f.label :password %><span style="color:red;"> * </span><br />
+      <%= f.password_field :password %>
+    </p>
+    <p>
+      <%= f.label :password_confirmation %><span style="color:red;"> * </span><br />
+      <%= f.password_field :password_confirmation %>
+    </p>
+    <p>
+      <%= f.label :full_name %><span style="color:red;"> * </span><br />
+      <%= f.text_field :full_name %>
+    </p>
+    <p>
+      <%= f.label :email %><span style="color:red;"> * </span><br />
+      <%= f.text_field :email %>
+    </p>
+    <p>
+      <%= f.label :twitter_name %><br />
+      <%= f.text_field :twitter_name %>
+    </p>
+    <p>
+      <%= f.submit 'Create', :class => "new_user_submit"%> <%= link_to 'Cancel', users_path, :class=>"cancel" %>
+    </p>
+  <% end %>
+    
+<%if session[:user_id].present?%>
+  </td>
+<%end%>
