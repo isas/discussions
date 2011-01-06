@@ -1,2 +1,30 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+$(document).ready(function(){
+  show_profile_info.call(this);
+})
+
+function show_profile_info()
+{
+    $(".profile_info").live("click",function(){
+        var $this = $(this);
+        
+    $.ajax({
+      url: "/users/" + $this.attr("id"),
+      data: {},
+      type: "get",
+      success: function(data) {
+          var html = "<div title='Profile info'>"+data+"</div>";
+          $(html).dialog({
+            modal: true, 
+            width: 600, 
+            heigth: 600, 
+            closeOnEscape: true, 
+            position: 'top'
+        });
+      }
+    });
+        
+        
+        
+        return false;
+    });
+}

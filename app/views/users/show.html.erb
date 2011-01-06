@@ -1,30 +1,33 @@
-<div class="article">
-  <h2 id="sub_header"><span><%=h @user.full_name %></span></h2>
+<div id="content">
 
-  <p>
-    <b>User name:</b>
-    <%=h @user.user_name %>
-  </p>
+  <div class="article">
+    <h2 id="sub_header"><span><%=h @user.full_name %></span></h2>
 
-  <p>
-    <b>Password:</b>
-    <%=h @user.password %>
-  </p>
+    <p>
+      <b>User name:</b>
+      <%=h @user.user_name %>
+    </p>
 
-  <p>
-    <b>Full name:</b>
-    <%=h @user.full_name %>
-  </p>
+    <p>
+      <b>Password:</b>
+      <%=h @user.password %>
+    </p>
 
-  <p>
-    <b>Email:</b>
-    <%=h @user.email %>
-  </p>
+    <p>
+      <b>Full name:</b>
+      <%=h @user.full_name %>
+    </p>
 
-  <p>
-    <b>Twitter name:</b>
-    <%=h @user.twitter_name %>
-  </p>
+    <p>
+      <b>Email:</b>
+      <%=h @user.email %>
+    </p>
 
-  <%= link_to 'Back', users_path %>
+    <p>
+      <b>Twitter name:</b>
+      <%=h @user.twitter_name %>
+    </p>
+
+    <%= link_to 'Back', users_path %>
+  </div>
 </div>
