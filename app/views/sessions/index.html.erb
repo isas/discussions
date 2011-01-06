@@ -1,26 +1,28 @@
 <div class="article">
-    <h2 id="sub_header"><span>Please log in</span></h2>
-    
-    
-    <div align="center" class="login_div">
+  <h2 id="sub_header"><span>Please log in</span></h2>
+
+
+  <div class="login_div">
+    <div align="center">
       <% form_tag :action => "create" do %>
-      <table class="login">
-        <tr>
-          <td>Login:</td>
-          <td><%= text_field_tag "login", "" %></td>
-        </tr>
-        <tr>
-          <td>Password:</td>
-          <td><%= text_field_tag "password", "", {:type => "password"} %></td>
-        </tr>
+        <table class="login">
+          <tr>
+            <td>Login:</td>
+            <td><%= text_field_tag "login", "" %></td>
+          </tr>
+          <tr>
+            <td>Password:</td>
+            <td><%= text_field_tag "password", "", {:type => "password"} %></td>
+          </tr>
           <td></td>
           <td style="color:red; text-align:right;">
             <%= link_to 'Register', {:controller => "users", :action => "new"}, :class => "register" %>
             <%= submit_tag 'Log in' %>
           </td>
-        </tr>
-      </table>
+          </tr>
+        </table>
       <% end -%>
     </div>
-    
+  </div>
+
 </div>

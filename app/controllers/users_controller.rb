@@ -21,12 +21,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    layout = session[:user_id] ? "application" : "session"
     @user = User.new(params[:user])
     if @user.save
-      redirect_to(@user, :notice => 'User was successfully created.')
+      flash[:notification] = "User was successfully created"
+      render :template => "sessions/index", :layout => false
     else
-      render :action => "new", :layout => layout
+      render :action => "new", :layout => false
     end
   end
 
