@@ -22,12 +22,13 @@ class UsersController < ApplicationController
   end
 
   def create
+    flash.clear
     @user = User.new(params[:user])
     if @user.save
       if current_user
         render :partial => "one_user"
       else
-        flash[:notification] = "User was successfully created"
+        flash[:notice] = "User was successfully created"
         render :template => "sessions/index", :layout => false
       end
     else

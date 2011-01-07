@@ -11,10 +11,10 @@ class SessionsController < ApplicationController
   end
   
   def create
+    flash.clear
     user = User.authenticate(params[:login], params[:password])
     if user
       session[:user_id]=user.id
-      flash.clear
       redirect_to users_path
     else
       flash[:warning] = "Login and/or password not correct!"
