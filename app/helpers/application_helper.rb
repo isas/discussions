@@ -11,7 +11,7 @@ module ApplicationHelper
         controller == "music_artists" ||
         controller == "movies"
     
-      link_to "New #{controller.underscore.humanize.singularize.downcase}", new_polymorphic_path(controller.singularize)
+      link_to "New #{controller.underscore.humanize.singularize.downcase}", new_polymorphic_path(controller.singularize), :class => ("new_subject" if controller == "subjects")
     end
   end
   
