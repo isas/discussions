@@ -24,9 +24,11 @@ class UsersController < ApplicationController
   def create
     flash.clear
     @user = User.new(params[:user])
+    @user.password = params[:user][:password]
+    @user.password_confirmation = params[:user][:password_confirmation]
     if @user.save
       if current_user
-        render :partial => "one_user"
+        render :partial => "one_user", :locals => {:user => @user}
       else
         flash[:notice] = "User was successfully created"
         render :template => "sessions/index", :layout => false
@@ -39,7 +41,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      render :partial => "one_user"
+      render :partial => "one_user", :locals => {:user => @user}
     else
       render "edit", :layout => false
     end
@@ -47,6 +49,6 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
-    redirect_to(users_url)
+    redirect_to users_url
   end
 end

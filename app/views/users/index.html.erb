@@ -3,10 +3,9 @@
 <div class="article">
   <h2 id="sub_header"><span>Users</span></h2>
 
-  <table>
+  <table class="main">
     <tr>
       <th>User name</th>
-      <th>Password</th>
       <th>Full name</th>
       <th>Email</th>
       <th>Twitter name</th>
@@ -16,7 +15,6 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= link_to user.user_name, user, :id=>user.id, :class=>"profile_info" %></td>
-        <td><%=h user.password %></td>
         <td><%=h user.full_name %></td>
         <td><%=h user.email %></td>
         <td><%=h user.twitter_name %></td>
