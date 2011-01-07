@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  
+  has_many :subjects
+  
   validates_presence_of :user_name, :password, :full_name, :email
   validates_uniqueness_of :user_name, :email
   validates_confirmation_of :password, :if => :password_changed?

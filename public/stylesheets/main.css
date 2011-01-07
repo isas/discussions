@@ -151,6 +151,7 @@ code, kbd, samp {font-family:monospace; font-size:110%;}
     #content .info span.date, #content .info span.cat, #content .info span.user, #content .info span.comments {padding-left:15px;}
     #content .info span.date {background:url("/images/ico_date.gif") 0 50% no-repeat;}
     #content .info span.cat {background:url("/images/ico_cat.gif") 0 50% no-repeat; margin-left:8px;}
+    #content .info span.option {background:url("/images/option.gif") 0 50% no-repeat; padding-left: 12px; margin-right:8px;}
     #content .info span.user {background:url("/images/ico_user.gif") 0 50% no-repeat; margin-left:8px;}
     #content .info span.comments {background:url("/images/ico_comments.gif") 0 50% no-repeat; margin-left:8px;}
 

@@ -1,4 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :subjects
+  map.resources :books
+  map.resources :music_artists
+  map.resources :movies
+
     map.resources :users
     map.resources :sessions, :only => [:index, :create]
     

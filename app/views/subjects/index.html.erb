@@ -1,0 +1,23 @@
+<% @subjects.each do |subject| %>
+  <div class="article">
+    <h2><span><%= link_to subject.title, subject %></a></span></h2>
+    <p class="info noprint">
+      <span class="date"><%=h subject.updated_at.strftime("%Y.%m.%d") %> @ <%=h subject.updated_at.strftime("%H:%M") %></span><span class="noscreen">,</span>
+      <span class="cat"><%= link_to subject.type, subjects_path, :title => "Category - #{subject.type}"%></span><span class="noscreen">,</span>
+      <span class="user"><%= link_to subject.user.full_name, nil, :id=> subject.user.id, :class=>"profile_info", :title => "Author - #{subject.user.full_name}" %></span><span class="noscreen">,</span>
+      <span class="comments"><a href="#">Comments (0)</a></span>
+
+
+    <p><%=h truncate(subject.description.gsub(/<.*?>/,''), 256) %></p>
+    
+
+    <p class="btn-more box noprint"><strong><%= link_to "Continue", subject %></strong></p>
+  </div>
+  <br/>
+<% end %>
+
+<%= link_to 'New subject', new_polymorphic_path(params[:controller].singularize)  %>
+  
+  
+  
+  <!--new_movie_path #new_book_path #new_music_artist #new_polymorphic_path(params[:controller].singularize) %>-->

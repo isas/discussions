@@ -1,0 +1,63 @@
+<%= javascript_include_tag "subjects" %>
+
+<% form_for(@subject) do |f| %>
+  <div class="article">
+    <h2><span><%= f.object.title %></a></span></h2>
+    <p class="info noprint">
+      <span class="date"><%=h DateTime.now.strftime("%Y.%m.%d") %> @ <%=h DateTime.now.strftime("%H:%M") %></span><span class="noscreen">,</span>
+      <span class="cat"><%= f.object.type.underscore.humanize %></span><span class="noscreen">,</span>
+      <span class="user"><%= link_to current_user.full_name, nil, :id=>current_user.id, :class=>"profile_info" %></span><span class="noscreen">,</span>
+
+    <div class="errors">
+      <%= custom_error_messages_for([f.object]) %>
+    </div>
+    
+    <p>
+      <%= f.label :title %><br />
+      <%= f.text_field :title, :class=>"title_textfield" %>
+    </p>
+    <%if f.object.author? %>
+      <p>
+        <%= f.label :author %><br />
+        <%= f.text_field :author %>
+      </p>
+    <%end%>
+    <%if f.object.year? %>
+      <p>
+        <%= f.label :year %><br />
+        <%= f.text_field :year %>
+      </p>
+    <%end%>
+    <%if f.object.director? %>
+      <p>
+        <%= f.label :director %><br />
+        <%= f.text_field :director %>
+      </p>
+    <%end%>
+    <%if f.object.origin? %>
+      <p>
+        <%= f.label :origin %><br />
+        <%= f.text_field :origin %>
+      </p>
+      <%end%>
+      <%if f.object.music_type? %>
+      <p>
+        <%= f.label :music_type %><br />
+        <%= f.text_field :music_type %>
+      </p>
+    <%end%>
+    <p>
+      <%= f.label :genre %><br />
+      <%= f.text_field :genre %>
+    </p>
+    <p>
+      <%= f.label :description %><br />
+      <%= f.text_area :description, :cols => 65 %>
+    </p>
+    <p>
+      <%= f.submit 'Create' %><%= link_to 'Cancel', polymorphic_path(params[:controller])%>
+    </p>
+
+  </div>
+  <br/>
+<% end %>
