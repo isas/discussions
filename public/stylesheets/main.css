@@ -225,7 +225,7 @@ code, kbd, samp {font-family:monospace; font-size:110%;}
     }
     
     div.errors{color: red;}
-    div.fieldWithErrors{color:red; display: inline;}
+    span.fieldWithErrors{color:red;}
     
     
     div.profile{background: url("/images/bg.gif") repeat-x scroll 0 0 transparent;}

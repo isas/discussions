@@ -14,13 +14,8 @@ function register(){
         data: {},
         type: "GET",
         success: function(data) {
-<<<<<<< HEAD
-
           div_content.html(data);
-          $(".article").fadeIn("slow");
-=======
-          div_content.html(data);
->>>>>>> master
+          $(".article").fadeIn("slow")
         }
     });
     
