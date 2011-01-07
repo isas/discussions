@@ -5,8 +5,8 @@ $(document).ready(function(){
 
 function register(){
   $("a.register").live("click", function(){
-    var $this = $(this);
-    $("div#content").html("<div class='loading'></div>");
+    var div_content = $("div#content");
+    div_content.html("<div class='loading'></div>");
     $("div#flashes").html("");
 
     $.ajax({
@@ -14,8 +14,13 @@ function register(){
         data: {},
         type: "GET",
         success: function(data) {
-          $("div#content").html(data);
+<<<<<<< HEAD
+
+          div_content.html(data);
           $(".article").fadeIn("slow");
+=======
+          div_content.html(data);
+>>>>>>> master
         }
     });
     

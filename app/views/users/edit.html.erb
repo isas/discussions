@@ -1,6 +1,6 @@
 <td class='td_edit' colspan='7' style='display:none;'>
 
-<% form_for(@user) do |f| %>
+<% form_for @user do |f| %>
   <div class="errors">
       <%= custom_error_messages_for([f.object]) %>
     </div>
