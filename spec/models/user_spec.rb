@@ -41,5 +41,6 @@ describe User do
     @user.password = @user.password_confirmation = "pasw1"
     @user.save
     User.authenticate("ingus", "password")
+    true.should be_false
   end
 end
