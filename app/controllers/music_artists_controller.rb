@@ -1,7 +1,7 @@
 class MusicArtistsController < ApplicationController
 
   def index
-    @subjects = MusicArtist.all
+    @subjects = MusicArtist.all_ordered
     render :template => "/subjects/index"
   end
 

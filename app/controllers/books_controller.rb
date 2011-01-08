@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
 
   def index
-    @subjects = Book.all
+    @subjects = Book.all_ordered
     render :template => "/subjects/index"
   end
 

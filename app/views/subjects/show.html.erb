@@ -2,7 +2,7 @@
   <h2><span><%= @subject.title %></a></span></h2>
   <p class="info noprint">
     <span class="date"><%=h @subject.updated_at.strftime("%Y.%m.%d") %> @ <%=h @subject.updated_at.strftime("%H:%M") %>
-      <span class="cat"><%= link_to @subject.type, books_path, :title => "Category - #{@subject.type}"%></span>
+      <span class="cat"><%= link_to @subject.type, polymorphic_path(params[:controller]), :title => "Category - #{@subject.type}"%></span>
       <span class="user"><%= link_to @subject.user.full_name, nil, :id=> @subject.user.id, :class=>"profile_info", :title => "Author - #{@subject.user.full_name}" %></span>
       <span class="comments"><a href="#">Comments (0)</a></span>
   </p>

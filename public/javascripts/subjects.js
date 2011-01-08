@@ -16,12 +16,13 @@ function new_subject()
 {
     $(".new_subject").live("click", function(){
         var option0 = "<option value=''></option>";
-        var option1 = "<option value='music_artists'>Music artist</option>";
+        var option1 = "<option value='books'>Book</option>";
         var option2 = "<option value='movies'>Movie</option>";
-        var option3 = "<option value='books'>Book</option>";
+        var option3 = "<option value='music_artists'>Music artist</option>";
+        
         
         var select_box = "<select id='subject_id' name='subject'>" +option0+option1+option2+option3 +"</select>";
-        var html = "<div title='Subject type'><div class='new' style='display:none;'> Chose category:"+select_box+"</div></div>";
+        var html = "<div title='Subject type'><div class='new' style='display:none;'> Chose category: <b>New </b>"+select_box+"</div></div>";
         $(html).dialog({
             dialogClass: 'alert',
             modal: true, 

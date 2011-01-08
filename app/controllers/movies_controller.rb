@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
 
   def index
-    @subjects = Movie.all
+    @subjects = Movie.all_ordered
     render :template => "/subjects/index"
   end
 
