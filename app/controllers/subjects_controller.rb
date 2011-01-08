@@ -1,7 +1,11 @@
 class SubjectsController < ApplicationController
 
   def index
-    @subjects = Subject.all_ordered
+    if params[:user_id]
+      @subjects = Subject.all_ordered_by_user_id(params[:user_id])
+    else
+      @subjects = Subject.all_ordered
+    end
   end
 
   def show

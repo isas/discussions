@@ -1,7 +1,11 @@
 class MusicArtistsController < ApplicationController
 
   def index
-    @subjects = MusicArtist.all_ordered
+    if params[:user_id]
+      @subjects = MusicArtist.all_ordered_by_user_id(params[:user_id])
+    else
+      @subjects = MusicArtist.all_ordered
+    end
     render :template => "/subjects/index"
   end
 

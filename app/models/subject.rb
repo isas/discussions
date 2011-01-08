@@ -8,6 +8,7 @@ class Subject < ActiveRecord::Base
   #before_save :add_user
   
   named_scope :all_ordered, :order => "created_at DESC"
+  named_scope :all_ordered_by_user_id, lambda{|user_id|{:conditions => [%{user_id = ?}, user_id]}}
   
 private
   def add_user

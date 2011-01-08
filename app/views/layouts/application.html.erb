@@ -78,7 +78,12 @@
             <hr class="noscreen" />
 
             <!-- Breadcrumbs -->
-            <p id="breadcrumbs"><strong><%= new_button(params[:controller])%></strong></p>
+            <p id="breadcrumbs"><strong><%= new_button(params[:controller])%></strong>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <%size = @subjects.size if @subjects%>
+              <%=user_name_if_params_user_name(params[:user_id], params[:controller], size) if params[:action] == "index"%>
+            </p>
             <hr class="noscreen" />
 
           </div> <!-- /strip -->

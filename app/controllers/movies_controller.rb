@@ -1,7 +1,11 @@
 class MoviesController < ApplicationController
 
   def index
-    @subjects = Movie.all_ordered
+    if params[:user_id]
+      @subjects = Movie.all_ordered_by_user_id(params[:user_id])
+    else
+      @subjects = Movie.all_ordered
+    end
     render :template => "/subjects/index"
   end
 

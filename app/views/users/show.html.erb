@@ -9,11 +9,6 @@
     </p>
 
     <p>
-      <b>Password:</b>
-      <%=h @user.password %>
-    </p>
-
-    <p>
       <b>Full name:</b>
       <%=h @user.full_name %>
     </p>
@@ -26,6 +21,21 @@
     <p>
       <b>Twitter name:</b>
       <%=h @user.twitter_name %>
+    </p>
+    
+    <p>
+      <b>Discussions:</b>
+      <% if @user.subjects.present? %>
+        <%=link_to "Subjects (#{@user.subjects.size})", subjects_path({:user_id=>@user.id})%>
+        =
+        <%= @user.books ? (link_to "Books (#{@user.books.size})", books_path({:user_id=>@user.id})) : "Books (-)"%>
+        +
+        <%= @user.movies ? (link_to "Movies (#{@user.movies.size})", movies_path({:user_id=>@user.id})) : "Movies (-)"%>
+        +
+        <%= @user.music_artists ? (link_to "Music artists (#{@user.music_artists.size})", music_artists_path({:user_id=>@user.id})) : "Music artists (-)"%>
+      <%else%>
+        -
+      <%end%>
     </p>
   </div>
 </div>

@@ -15,4 +15,13 @@ module ApplicationHelper
     end
   end
   
+  def user_name_if_params_user_name(user_id, controller, size)
+    if user_id
+      user = User.find(user_id)
+      "<strong style='color:black;'> #{user.full_name} #{controller.underscore.humanize.downcase} (#{size})</strong>"
+    else
+      "<strong style='color:black;'> #{controller.underscore.humanize} (#{size})</strong>"
+    end
+  end
+  
 end

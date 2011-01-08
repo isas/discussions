@@ -1,7 +1,11 @@
 class BooksController < ApplicationController
 
   def index
-    @subjects = Book.all_ordered
+    if params[:user_id]
+      @subjects = Book.all_ordered_by_user_id(params[:user_id])
+    else
+      @subjects = Book.all_ordered
+    end
     render :template => "/subjects/index"
   end
 
