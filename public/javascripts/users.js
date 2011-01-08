@@ -22,6 +22,7 @@ function new_user(){
           $("td.td_new").fadeIn("slow");
           tr.removeClass("new_tr");
           tr.after("<tr class='new_tr'><td colspan='7'><a id='new_user' href='/users/new'>New user</a></td></tr>");
+          focus_in(tr);
         }
     });
     
@@ -46,6 +47,7 @@ function edit_user()
           success: function(data) {
               tr.html(data);
               $("td.td_edit").fadeIn("slow");
+              focus_in(tr);
           }
         });
        
@@ -81,6 +83,7 @@ function update_user()
       success: function(data) {
           tr.html(data);
           $("td.td_edit").fadeIn("slow");
+          focus_in(tr);
       }
     });
        
@@ -104,6 +107,7 @@ function save_new_user()
       success: function(data) {
           tr.html(data);
           $("td.td_new").fadeIn("slow");
+          focus_in(tr);
       }
     });
        

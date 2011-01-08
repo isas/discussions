@@ -4,6 +4,12 @@ $(document).ready(function(){
 
 function focus()
 {
-    $(".title_textfield").focus();
-    $("#login").focus();
+    //$(".title_textfield").focus();
+    //$("#login").focus();
+    $("form input[type=text]:first").focus();
+}
+
+function focus_in($element)
+{
+    $element.find("form input[type=text]:first").focus();
 }
