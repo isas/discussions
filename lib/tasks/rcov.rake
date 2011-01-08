@@ -25,19 +25,4 @@ namespace :rcov do
     Rake::Task["rcov:cucumber"].invoke
     Rake::Task["rcov:rspec"].invoke
   end
-
-  desc "Remove coverage.data"
-  task :remove_coverage do |t|
-    rm "coverage.data" if File.exist?("coverage.data")
-  end
-
-  desc "Run only cucumber"
-  task :only_cucumber do |t|
-    Rake::Task["rcov:cucumber"].invoke
-  end
-
-  desc "Run only rspec"
-  task :only_rspec do |t|
-    Rake::Task["rcov:rspec"].invoke
-  end
 end
