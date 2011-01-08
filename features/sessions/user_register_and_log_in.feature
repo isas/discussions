@@ -9,4 +9,4 @@ Feature: User register an log in
     When I fill in "login" with "fake_man"
     And I fill in "password" with "123456"
     And I press "Log in"
-    Then I should see "Login and/or password not correct!" within "div#warnings"
+    Then I should see "Login and/or password not correct!" within "div#warning"
