@@ -2,10 +2,11 @@ require 'cucumber/rake/task'
 require 'spec/rake/spectask'
  
 namespace :rcov do
-  Cucumber::Rake::Task.new(:cucumber) do |t|    
+  Cucumber::Rake::Task.new(:cucumber) do |t|  
+    system "mkdir tmp/features -p"  
     t.rcov = true
     t.cucumber_opts = %w{-f html -o tmp/features/index.htm -f progress}
-    t.rcov_opts = %w{--rails --exclude osx\/objc,gems\/,spec\/,features\/ --aggregate coverage.data}
+    t.rcov_opts = %w{--rails --no-html --exclude osx\/objc,gems\/,spec\/,features\/ --aggregate coverage.data}
     t.rcov_opts << %[-o "coverage"]
   end
  
