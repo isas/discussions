@@ -14,6 +14,9 @@ module NavigationHelpers
     when /subjects page/
       '/subjects'
 
+    when /sessions page/
+      '/sessions'
+
     else
       begin
         page_name =~ /the (.*) page/

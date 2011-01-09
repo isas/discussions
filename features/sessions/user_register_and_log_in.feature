@@ -11,6 +11,12 @@ Feature: User register an log in
     And   I press "Log in"
     Then  I should see "Login and/or password not correct!" within "div#warning"
     
+  Scenario: user tries to access page when not logged in and gets redirected to login page
+    Given I am on login page
+    When  I go to subjects page 
+    Then  I should be on sessions page
+    And   I should see "Please log in" within "div#warning"
+    
   Scenario: user tries to register and gets some validation errors
     Given I am on login page
     When  I follow "Register"
