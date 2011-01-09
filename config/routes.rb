@@ -10,6 +10,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :users, :member => {:password_reset => :post}
   map.resources :sessions, :only => [:index, :create]
+  
+  map.logout "/logout", :controller => 'sessions', :action => 'destroy'
     
   # The priority is based upon order of creation: first created -> highest priority.
 

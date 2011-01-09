@@ -76,7 +76,7 @@
           <div id="strip" class="box noprint">
 
             <!-- RSS feeds -->
-            <p id="rss" align="right"><%= link_to 'Logout', {:controller => "sessions", :action => "destroy"} %></p>
+            <p id="rss" align="right"><%= link_to 'Logout', logout_path %></p>
             <hr class="noscreen" />
             
             <%if subject?(params[:controller])%>
