@@ -4,7 +4,7 @@
     <span class="date"><%=h @subject.updated_at.strftime("%Y.%m.%d") %> @ <%=h @subject.updated_at.strftime("%H:%M") %>
       <span class="cat"><%= link_to @subject.type, polymorphic_path(params[:controller]), :title => "Category - #{@subject.type}"%></span>
       <span class="user"><%= link_to @subject.user.full_name, nil, :id=> @subject.user_id, :class=>"profile_info", :title => "Author - #{@subject.user.full_name}" %></span>
-      <span class="comments">Comments (<%= @subject.comments.size %>)</span>
+      <span class="comments comment_size_text">Comments (<%= @subject.comments.size %>)</span>
   </p>
   <p class="info noprint"><%=  categories(@subject)%></p>
 
@@ -16,7 +16,8 @@
 <%= link_to 'Back', polymorphic_path(params[:controller])%>
 
 
-<h2>Comments</h2>
+<h2 class="comment_size_text">Comments (<%=@subject.comments.size%>)</h2>
+<%= hidden_field_tag "comment_size", @subject.comments.size, :class => "comment_size" %>
 <div class="article">
   <% @comments.each do |comment| %>
     <p class="comment">
