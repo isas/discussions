@@ -47,6 +47,7 @@ form {border:0; margin:0; padding:0;}
 fieldset {border:1px solid #ccc; margin:15px 0; padding:10px;}
 legend {margin-left:10px; font-size:100%; font-weight:bold; color:#008;}
 textarea {width:490px}
+textarea.comment_text_area {width:450px}
 
 hr {display:block; height:1px; margin:10px 0; padding:0; background:#CCC; border:0 solid #CCC; color:#CCC;}
 
@@ -145,6 +146,11 @@ code, kbd, samp {font-family:monospace; font-size:110%;}
     #content .article h2 span {background:url("/images/ico_list.gif") 0 50% no-repeat; padding-left:25px;}
     
     #content .article p {text-align:justify;}
+    #content .comment {margin-top:10px; margin-bottom:0px; padding-bottom:8px; color:#6685CC;}
+    #content .comment_text {border-bottom: 2px solid #DEE5FD;margin-bottom: 10px;margin-top: 0;padding-bottom: 10px; padding-left: 10px; color:black;}
+    #content .comment a {color:#6685CC;}
+    #content .comment a:hover {color:#FF9000;}
+    
     #content .info {margin:10px 0; padding-bottom:8px; border-bottom:1px solid #DEE5FD; color:#6685CC;}
     #content .info a {color:#6685CC;}
     #content .info a:hover {color:#FF9000;}

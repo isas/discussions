@@ -1,0 +1,15 @@
+<p class="comment">
+  <span class="date"><%=h DateTime.now.strftime("%Y.%m.%d") %> @ <%=h DateTime.now.strftime("%H:%M") %>
+    <span class="user"><%= link_to current_user.full_name, nil, :id=> current_user.id, :class=>"profile_info", :title => "Author - #{current_user.full_name}" %></span>
+</p>
+
+<% form_for comment do |f| %>
+  <div class="errors">
+    <%= custom_error_messages_for([f.object]) %>
+  </div>
+  <%=f.hidden_field :subject_id %>
+  <p class="comment_text" style="border: none;">
+    <%= f.text_area :text, :rows => 5, :class => "comment_text_area" %>
+  </p>
+  <p><%= f.submit 'Save', :class => "save_comment" %></p>
+<%end%>

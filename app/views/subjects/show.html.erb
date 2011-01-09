@@ -3,8 +3,8 @@
   <p class="info noprint">
     <span class="date"><%=h @subject.updated_at.strftime("%Y.%m.%d") %> @ <%=h @subject.updated_at.strftime("%H:%M") %>
       <span class="cat"><%= link_to @subject.type, polymorphic_path(params[:controller]), :title => "Category - #{@subject.type}"%></span>
-      <span class="user"><%= link_to @subject.user.full_name, nil, :id=> @subject.user.id, :class=>"profile_info", :title => "Author - #{@subject.user.full_name}" %></span>
-      <span class="comments"><a href="#">Comments (0)</a></span>
+      <span class="user"><%= link_to @subject.user.full_name, nil, :id=> @subject.user_id, :class=>"profile_info", :title => "Author - #{@subject.user.full_name}" %></span>
+      <span class="comments">Comments (<%= @subject.comments.size %>)</span>
   </p>
   <p class="info noprint"><%=  categories(@subject)%></p>
 
@@ -16,4 +16,19 @@
 <%= link_to 'Back', polymorphic_path(params[:controller])%>
 
 
-<p>++++ more commments dafiga !!!</p>
+<h2>Comments</h2>
+<div class="article">
+  <% @comments.each do |comment| %>
+    <p class="comment">
+      <span class="date"><%=h comment.updated_at.strftime("%Y.%m.%d") %> @ <%=h comment.updated_at.strftime("%H:%M") %>
+        <span class="user"><%= link_to comment.user.full_name, nil, :id=> comment.user_id, :class=>"profile_info", :title => "Author - #{comment.user.full_name}" %></span>
+    </p>
+    <p class="comment_text">
+      <%=comment.text%>
+    </p>
+  <%end%>
+
+  <div>
+    <%= render :partial => "/comments/new", :locals => {:comment => @comment} %> 
+  </div>
+</div>

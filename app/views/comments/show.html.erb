@@ -1,0 +1,13 @@
+<div class="need_to_show" style="display:none;">
+  <p class="comment">
+    <span class="date"><%=h @comment.updated_at.strftime("%Y.%m.%d") %> @ <%=h @comment.updated_at.strftime("%H:%M") %>
+      <span class="user"><%= link_to @comment.user.full_name, nil, :id=> @comment.user_id, :class=>"profile_info", :title => "Author - #{@comment.user.full_name}" %></span>
+  </p>
+  <p class="comment_text">
+    <%=@comment.text%>
+  </p>
+
+  <div>
+    <%= render :partial => "/comments/new", :locals => {:comment => @comment_new} %> 
+  </div>
+</div>

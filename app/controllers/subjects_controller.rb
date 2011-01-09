@@ -18,6 +18,8 @@ class SubjectsController < ApplicationController
 
   def show
     @subject = subject_class.find(params[:id])
+    @comments = @subject.comments
+    @comment = Comment.new({:subject_id => @subject.id})
     render :template => "/subjects/show"
   end
 

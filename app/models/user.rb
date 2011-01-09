@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :books
   has_many :movies
   has_many :music_artists
+  has_many :comments
   
   validates_presence_of :user_name, :password, :full_name, :email
   validates_uniqueness_of :user_name, :email
