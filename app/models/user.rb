@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  
   has_many :subjects
   has_many :books
   has_many :movies
@@ -10,9 +9,11 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password, :if => :password_changed?
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   
-  before_save :hash_password
+  class << self
+    attr_accessor :current_user
+  end
   
-  attr_accessor :password_confirmation
+  before_save :hash_password
   
   attr_protected :password, :password_confirmation
   

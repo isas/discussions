@@ -1,6 +1,5 @@
 class Book < Subject
-  #validates_presence_of :title#, :password, :full_name, :email
-  
+
   def author?
     true
   end

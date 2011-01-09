@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  
   skip_before_filter :autentucated?, :only => [:new, :create]
   
   def index

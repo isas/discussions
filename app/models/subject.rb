@@ -1,17 +1,15 @@
 class Subject < ActiveRecord::Base
-  
-  validates_presence_of :title, :description, :user_id
-  
   belongs_to :user
+
+  named_scope :ordered, :order => "created_at DESC"
+  named_scope :where_user_id, lambda{|user_id|{:conditions => [%{user_id = ?}, user_id]}}
   
-  #TODO: set current user in before filter - not in controllers (subjects, books...)
-  #before_save :add_user
+  before_create :set_user
   
-  named_scope :all_ordered, :order => "created_at DESC"
-  named_scope :all_ordered_by_user_id, lambda{|user_id|{:conditions => [%{user_id = ?}, user_id]}}
+  validates_presence_of :title, :description, :user
   
-private
-  def add_user
-   self.user=current_user
+  protected
+  def set_user
+   self.user= User.current_user
   end
 end
