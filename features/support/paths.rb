@@ -10,6 +10,9 @@ module NavigationHelpers
 
     when /login page/
       '/'
+      
+    when /subjects page/
+      '/subjects'
 
     else
       begin

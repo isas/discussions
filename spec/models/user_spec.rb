@@ -1,7 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + "/../spec_helper")
 
 describe User do
-  
   before do
     @user = User.new(
       :user_name => "ingus", 
@@ -31,15 +30,23 @@ describe User do
     @user.valid?.should be_true
   end
 
-  it "should be authenticated by user name and password" do
-    @user.password = @user.password_confirmation = "pasw1"
-    @user.save
-    User.authenticate("ingus", "pasw1")
-  end
-  
-  it "should not be authenticated by valid user name and invalid password" do
-    @user.password = @user.password_confirmation = "pasw1"
-    @user.save
-    User.authenticate("ingus", "password")
+  describe "working with password" do
+    before do
+      @user.password = @user.password_confirmation = "pasw1"
+      @user.save
+    end
+    it "should be authenticated by user name and password" do
+      User.authenticate("ingus", "pasw1").should_not be_nil
+    end
+
+    it "should not be authenticated by valid user name and invalid password" do
+      User.authenticate("ingus", "password").should be_nil
+    end
+
+    it "should reset password and login with new password" do
+      password = @user.reset_password
+      @user.save
+      User.authenticate("ingus", password).should_not be_nil
+    end
   end
 end
