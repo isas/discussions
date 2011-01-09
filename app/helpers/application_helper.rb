@@ -6,13 +6,7 @@ module ApplicationHelper
   end
   
   def new_button(controller)
-    if controller == "subjects" ||
-        controller == "books" ||
-        controller == "music_artists" ||
-        controller == "movies"
-    
-      link_to "New #{controller.underscore.humanize.singularize.downcase}", new_polymorphic_path(controller.singularize), :class => ("new_subject" if controller == "subjects")
-    end
+    link_to "New #{controller.underscore.humanize.singularize.downcase}", new_polymorphic_path(controller.singularize), :class => ("new_subject" if controller == "subjects")
   end
   
   def user_name_if_params_user_name(user_id, controller, size)
@@ -22,6 +16,10 @@ module ApplicationHelper
     else
       "<strong style='color:black;'> #{controller.underscore.humanize} (#{size})</strong>"
     end
+  end
+  
+  def subject?(controller)
+    controller == "subjects" || controller == "books" || controller == "music_artists" || controller == "movies"
   end
   
 end

@@ -1,5 +1,6 @@
 $(document).ready(function(){
     show_profile_info.call(this);
+    profile_click.call(this);
 })
 
 function show_profile_info()
@@ -25,6 +26,17 @@ function show_profile_info()
         });
         
         
+        
+        return false;
+    });
+}
+
+function profile_click()
+{
+    $(".profile a").live("click",function(){
+        var $this = $(this);
+        $this.parent().html("<div class='loading'></div>");
+        window.location = $this.attr("href");
         
         return false;
     });

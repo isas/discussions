@@ -26,7 +26,7 @@
     <p>
       <b>Discussions:</b>
       <% if @user.subjects.present? %>
-        <%=link_to "Subjects (#{@user.subjects.size})", subjects_path({:user_id=>@user.id})%>
+        <b><%=link_to "Subjects (#{@user.subjects.size})", subjects_path({:user_id=>@user.id})%></b>
         =
         <%= @user.books ? (link_to "Books (#{@user.books.size})", books_path({:user_id=>@user.id})) : "Books (-)"%>
         +

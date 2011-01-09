@@ -76,14 +76,13 @@
             <!-- RSS feeds -->
             <p id="rss" align="right"><%= link_to 'Logout', {:controller => "sessions", :action => "destroy"} %></p>
             <hr class="noscreen" />
-
-            <!-- Breadcrumbs -->
-            <p id="breadcrumbs"><strong><%= new_button(params[:controller])%></strong>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <%size = @subjects.size if @subjects%>
-              <%=user_name_if_params_user_name(params[:user_id], params[:controller], size) if params[:action] == "index"%>
-            </p>
+            
+            <%if subject?(params[:controller])%>
+              <p id="breadcrumbs"><span class="new_element"><%= new_button(params[:controller])%></span>
+                <%size = @subjects.size if @subjects%>
+                <%=user_name_if_params_user_name(params[:user_id], params[:controller], size) if params[:action] == "index"%>
+              </p>
+            <%end%>
             <hr class="noscreen" />
 
           </div> <!-- /strip -->

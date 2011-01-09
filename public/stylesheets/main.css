@@ -231,3 +231,11 @@ code, kbd, samp {font-family:monospace; font-size:110%;}
     
     
     div.profile{background: url("/images/bg.gif") repeat-x scroll 0 0 transparent;}
+    
+    span.new_element
+    {
+        margin-right: 80px; 
+        width: 156px; 
+        display: inline-block; 
+        font-weight: bold;
+    }
