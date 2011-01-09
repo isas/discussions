@@ -28,11 +28,11 @@ class SubjectsController < ApplicationController
 
   def edit
     @subject = subject_class.find(params[:id])
-    render :edit
+    render :template => "/subjects/edit"
   end
 
   def create
-    @subject = subject_class.new(params[:subject])
+    @subject = subject_class.new(params[subject_sym])
     if @subject.save
       redirect_to(@subject, :notice => 'Subject was successfully created.') 
     else
@@ -42,7 +42,7 @@ class SubjectsController < ApplicationController
 
   def update
     @subject = subject_class.find(params[:id])
-    if @subject.update_attributes(params[:subject])
+    if @subject.update_attributes(params[subject_sym])
       redirect_to(@subject, :notice => 'Subject was successfully updated.')
     else
       render :template => "/subjects/edit" 
@@ -58,6 +58,11 @@ class SubjectsController < ApplicationController
   # Right subjects class for child controllers 
   def subject_class
     self.class.subject_class
+  end
+  
+  # Right subjects symbol in parameters
+  def subject_sym
+    subject_class.to_s.downcase.to_sym
   end
   
   # Right subjects path for child controllers
