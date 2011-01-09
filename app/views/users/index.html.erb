@@ -2,23 +2,32 @@
 
 <div class="article">
   <h2 id="sub_header"><span>Users</span></h2>
-
+  
+  <% if flash[:notice] %>
+    <div id="flashes">
+      <div id="notice">
+        <%= flash[:notice] %>
+      </div>
+    </div>
+  <% end %>
+  
   <table class="main">
     <tr>
       <th>User name</th>
       <th>Full name</th>
-      <th>Email</th>
-      <th>Twitter name</th>
-      <th colspan="2">Action</th>
+      <th colspan="3">Actions</th>
     </tr>
 
     <% @users.each do |user| %>
       <tr>
         <td><%= link_to user.user_name, user, :id=>user.id, :class=>"profile_info" %></td>
         <td><%=h user.full_name %></td>
-        <td><%=h user.email %></td>
-        <td><%=h user.twitter_name %></td>
         <td><%= link_to 'Edit', edit_user_path(user), :id => "#{user.id}", :class=>"edit_user" %></td>
+        <td>
+          <% form_tag password_reset_user_path(user), :class => 'passwordReset' do %>
+            <%= link_to 'Reset password', '#' %>
+          <% end %>
+        </td>
         <td><%= link_to 'Delete', user, :confirm => 'Are you sure?', :method => :delete %></td>
       </tr>
     <% end %>

@@ -5,6 +5,7 @@ $(document).ready(function(){
   edit_user.call(this);
   edit_cancel.call(this);
   update_user.call(this);
+  password_reset.call(this);
 })
 
 function new_user(){
@@ -127,3 +128,10 @@ function cancel()
     });
 }
 
+/* Handler for password reset form post*/
+function password_reset(){
+  $("form.passwordReset a").live('click',function(){
+      $(this).closest("form.passwordReset").submit();
+      return false;
+  })   
+}

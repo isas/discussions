@@ -1,6 +1,9 @@
 <td class='td_new td_edit' style='display:none;'><%= link_to user.user_name, user, :id=>user.id, :class=>"profile_info" %></td>
 <td class='td_new td_edit' style='display:none;'><%=h user.full_name %></td>
-<td class='td_new td_edit' style='display:none;'><%=h user.email %></td>
-<td class='td_new td_edit' style='display:none;'><%=h user.twitter_name %></td>
 <td class='td_new td_edit' style='display:none;'><%= link_to 'Edit', edit_user_path(user), :id => "#{user.id}", :class=>"edit_user" %></td>
+<td>
+  <% form_tag password_reset_user_path(user), :class => 'passwordReset' do %>
+    <%= link_to 'Reset password', '#' %>
+  <% end %>
+</td>
 <td class='td_new td_edit' style='display:none;'><%= link_to 'Delete', user, :confirm => 'Are you sure?', :method => :delete %></td>

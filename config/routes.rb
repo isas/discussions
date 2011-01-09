@@ -8,8 +8,8 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :twitters, :only => :index
 
-    map.resources :users
-    map.resources :sessions, :only => [:index, :create]
+  map.resources :users, :member => {:password_reset => :post}
+  map.resources :sessions, :only => [:index, :create]
     
   # The priority is based upon order of creation: first created -> highest priority.
 

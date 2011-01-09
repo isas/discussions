@@ -19,13 +19,25 @@ class User < ActiveRecord::Base
   attr_protected :password, :password_confirmation
   
   SALT = "d1ScuSs10N"
+  PASSWORD_SIZE = 8
+  CHARS = ('a'..'z').to_a + ('A'..'Z').to_a + ('0'..'9').to_a
+  SIZE = CHARS.size
   
+  # Looks for user by username and password
   def self.authenticate(login, password)
     password = Digest::SHA512.hexdigest("#{SALT}#{password}")
     User.find_by_user_name_and_password(login, password)
   end
   
+  # Generates new password and sets on attributes
+  def reset_password
+    range = (1..PASSWORD_SIZE)
+    self.password = range.collect{ CHARS[rand(SIZE)] }.join
+    self.password_confirmation = self.password
+  end
+  
   private
+  # Hashes password before saving only if password has changed
   def hash_password
     self.password = Digest::SHA512.hexdigest("#{SALT}#{password}") if password_changed?
   end
