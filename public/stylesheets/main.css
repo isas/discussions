@@ -101,7 +101,7 @@ code, kbd, samp {font-family:monospace; font-size:110%;}
     #header #search legend {display:none;}
 
 /* Main menu (tabs) */
-#tabs {background:#192666; margin:-1px 5px; padding:10px 0 0 0; _height:1px;}
+#tabs {background:#192666; margin:0px 5px; padding:10px 0 0 0; _height:1px;}
 
     #tabs ul {margin:0 10px; padding:0; list-style:none;}
     #tabs ul li {margin:0 5px 0 0; padding:0; float:left;}

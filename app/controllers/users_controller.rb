@@ -39,6 +39,8 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    @user.password = params[:user][:password]
+    @user.password_confirmation = params[:user][:password_confirmation]
     if @user.update_attributes(params[:user])
       render :partial => "one_user", :locals => {:user => @user}
     else

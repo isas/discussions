@@ -1,6 +1,7 @@
 $(document).ready(function(){
     show_profile_info.call(this);
     profile_click.call(this);
+    focus_all_password.call(this);
 })
 
 function show_profile_info()
@@ -39,5 +40,13 @@ function profile_click()
         window.location = $this.attr("href");
         
         return false;
+    });
+}
+
+function focus_all_password()
+{
+    $("input#user_password").live("click",function(){
+        var $this = $(this);
+        $this.select();
     });
 }

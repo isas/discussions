@@ -11,7 +11,7 @@
     </div>
     
     <p>
-      <%= f.label :title %><br />
+      <%= f.label :title %><span style="color:red;"> * </span><br />
       <%= f.text_field :title, :class=>"title_textfield" %>
     </p>
     <%if f.object.author? %>
@@ -49,11 +49,11 @@
       <%= f.text_field :genre %>
     </p>
     <p>
-      <%= f.label :description %><br />
+      <%= f.label :description %><span style="color:red;"> * </span><br />
       <%= f.text_area :description, :cols => 60 %>
     </p>
     <p>
-      <%= f.submit 'Create' %><%= link_to 'Cancel', polymorphic_path(params[:controller])%>
+      <%= f.submit 'Create' %> <%= link_to 'Cancel', polymorphic_path(params[:controller])%>
     </p>
 
   </div>
