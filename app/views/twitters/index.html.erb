@@ -1,0 +1,31 @@
+<%= javascript_include_tag "twitters" %>
+
+<div class="article">
+  <h2 id="sub_header"><span><%= current_user.full_name %> tweets</span></h2>
+  
+   <div id="flashes">
+      <% if flash[:notice] -%> 
+        <div id="notice"><%= flash[:notice] %></div>
+      <% end -%>
+      <% if flash[:warning] -%> 
+        <div id="warning"><%= flash[:warning] %></div>
+      <% end -%>
+      <% if flash[:error] -%> 
+        <div id="error"><%= flash[:error] %></div>
+      <% end -%>
+    </div>
+
+  
+  <% @tweets.each do |tweet| %>
+    <div class="tweet" style="display:none;">
+      <p class="comment">
+        <span class="date"><%=h tweet.created_at.to_datetime.strftime("%Y.%m.%d") %> @ <%=h (tweet.created_at.to_datetime + 2.hours).strftime("%H:%M") %>
+      </p>
+      <p class="comment_text">
+        <%= tweet.text%>
+      </p>
+      <br />
+    </div>
+  <%end%>
+
+</div>

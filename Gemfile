@@ -2,6 +2,7 @@ source "http://rubygems.org"
 
 gem "rails", "2.3.10"
 gem "mysql", "2.8.1"
+gem "twitter", "1.1.0"
 
 group :development do
   gem "heroku", "1.16.2"
