@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(params[:comment])
     @comment.user_id = current_user.id
     if @comment.save
-      redirect_to(@comment, :notice => 'Comment was successfully created.')
+      redirect_to @comment 
     else
       render :partial => "new", :locals => {:comment => @comment}
     end

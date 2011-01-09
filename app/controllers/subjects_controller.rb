@@ -28,28 +28,28 @@ class SubjectsController < ApplicationController
     render :template => "/subjects/new"
   end
 
-  def edit
-    @subject = subject_class.find(params[:id])
-    render :template => "/subjects/edit"
-  end
+#  def edit
+#    @subject = subject_class.find(params[:id])
+#    render :template => "/subjects/edit"
+#  end
 
   def create
     @subject = subject_class.new(params[subject_sym])
     if @subject.save
-      redirect_to(@subject, :notice => 'Subject was successfully created.') 
+      redirect_to @subject  
     else
       render :template => "/subjects/new" 
     end
   end
 
-  def update
-    @subject = subject_class.find(params[:id])
-    if @subject.update_attributes(params[subject_sym])
-      redirect_to(@subject, :notice => 'Subject was successfully updated.')
-    else
-      render :template => "/subjects/edit" 
-    end
-  end
+#  def update
+#    @subject = subject_class.find(params[:id])
+#    if @subject.update_attributes(params[subject_sym])
+#      redirect_to @subject
+#    else
+#      render :template => "/subjects/edit" 
+#    end
+#  end
 
   def destroy
     subject_class.find(params[:id]).destroy

@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
       session[:user_id]=user.id
       redirect_to subjects_path
     else
-      flash[:warning] = "Login and/or password not correct!"
+      flash.now[:warning] = "Login and/or password not correct!"
       render :index, :layout => "session"
     end
   end

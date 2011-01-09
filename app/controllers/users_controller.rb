@@ -29,7 +29,7 @@ class UsersController < ApplicationController
       if current_user
         render :partial => "one_user", :locals => {:user => @user}
       else
-        flash[:notice] = "User was successfully created"
+        flash.now[:notice] = "User was successfully created"
         render :template => "sessions/index", :layout => false
       end
     else
