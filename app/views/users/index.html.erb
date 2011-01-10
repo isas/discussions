@@ -16,7 +16,7 @@
       <th>User name</th>
       <th>Full name</th>
       <th>Twitter name</th>
-      <th colspan="3">Actions</th>
+      <th colspan="2">Actions</th>
     </tr>
 
     <% @users.each do |user| %>
@@ -25,11 +25,6 @@
         <td><%=h user.full_name %></td>
         <td><%=h user.twitter_name %></td>
         <td><%= link_to 'Edit', edit_user_path(user), :id => "#{user.id}", :class=>"edit_user" %></td>
-        <td>
-          <% form_tag password_reset_user_path(user), :class => 'passwordReset' do %>
-            <%= link_to 'Reset password', '#' %>
-          <% end %>
-        </td>
         <td><%= link_to 'Delete', user, :confirm => 'Are you sure?', :method => :delete %></td>
       </tr>
     <% end %>

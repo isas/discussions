@@ -53,13 +53,4 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     redirect_to users_url
   end
-  
-  def password_reset
-    user = User.find(params[:id])
-    user.reset_password
-    PasswordReset.deliver_password_reset(user)
-    user.save
-    flash[:notice] = "Password was reset successfully!"
-    redirect_to users_path
-  end
 end

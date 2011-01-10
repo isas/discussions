@@ -27,4 +27,19 @@ class SessionsController < ApplicationController
     reset_session
     redirect_to root_path
   end
+  
+  def password_reset
+    render :password_reset, :layout => "session"
+  end
+  
+  def submit_password_reset
+    if (user = User.authorize params[:login], params[:email])
+      user.reset_password
+      flash[:notice] = "Password was reset successfully, #{user.full_name}!"
+      redirect_to sessions_path
+    else
+      flash[:error] = "User not found!"
+      render :password_reset, :layout => "session"
+    end
+  end
 end

@@ -6,10 +6,14 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :music_artists
   map.resources :movies
   
-  map.resources :twitters, :only => :index
+  map.resources :twitters, :only => [:index]
 
-  map.resources :users, :member => {:password_reset => :post}
-  map.resources :sessions, :only => [:index, :create]
+  map.resources :users
+  
+  map.resources :sessions, :only => [:index, :create], :collection => {
+      :password_reset        => :get, 
+      :submit_password_reset => :post
+  }
   
   map.logout "/logout", :controller => 'sessions', :action => 'destroy'
     

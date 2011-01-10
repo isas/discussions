@@ -16,7 +16,10 @@ module NavigationHelpers
 
     when /sessions page/
       '/sessions'
-
+    
+    when /password reset page/
+      '/sessions/password_reset'
+    
     else
       begin
         page_name =~ /the (.*) page/

@@ -12,28 +12,34 @@ class User < ActiveRecord::Base
   
   class << self
     attr_accessor :current_user
+    
+    # Looks for user by username and password
+    def authenticate login, password
+      password = Digest::SHA512.hexdigest("#{SALT}#{password}")
+      find_by_user_name_and_password login, password
+    end
+    
+    # Looks for user by username and email
+    def authorize login, email
+      find_by_user_name_and_email login, email
+    end
   end
   
   before_save :hash_password
   
   attr_protected :password, :password_confirmation
   
-  SALT = "d1ScuSs10N"
-  PASSWORD_SIZE = 8
-  CHARS = ('a'..'z').to_a + ('A'..'Z').to_a + ('0'..'9').to_a
-  SIZE = CHARS.size
-  
-  # Looks for user by username and password
-  def self.authenticate(login, password)
-    password = Digest::SHA512.hexdigest("#{SALT}#{password}")
-    User.find_by_user_name_and_password(login, password)
-  end
+  SALT           = "d1ScuSs10N"
+  PASSWORD_RANGE = 1..8
+  CHARS          = ('a'..'z').to_a + ('A'..'Z').to_a + ('0'..'9').to_a
+  SIZE           = CHARS.size
   
   # Generates new password and sets on attributes
   def reset_password
-    range = (1..PASSWORD_SIZE)
-    self.password = range.collect{ CHARS[rand(SIZE)] }.join
+    self.password = PASSWORD_RANGE.collect{ CHARS[rand(SIZE)] }.join
     self.password_confirmation = self.password
+    PasswordReset.deliver_password_reset(self)
+    save
   end
   
   private

@@ -42,11 +42,19 @@ describe User do
     it "should not be authenticated by valid user name and invalid password" do
       User.authenticate("ingus", "password").should be_nil
     end
+    
+    it "should reset password and should not login with old password" do
+      @user.reset_password
+      User.authenticate("ingus", "pasw1").should be_nil
+    end
 
     it "should reset password and login with new password" do
-      password = @user.reset_password
-      @user.save
-      User.authenticate("ingus", password).should_not be_nil
+      @user.reset_password
+      User.authenticate("ingus", @user.password_confirmation).should_not be_nil
+    end
+    
+    it "should find user by login and email for password reset" do
+      User.authorize(@user.user_name, @user.email).should_not be_nil
     end
   end
 end

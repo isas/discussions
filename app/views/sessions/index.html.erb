@@ -17,7 +17,8 @@
           </tr>
           <td></td>
           <td style="color:red; text-align:right;">
-            <%= link_to 'Register', {:controller => "users", :action => "new"}, :class => "register" %>
+            <%= link_to 'Reset password', password_reset_sessions_path %>
+            <%= link_to 'Register', new_user_path, :class => "register" %>
             <%= submit_tag 'Log in' %>
           </td>
           </tr>
