@@ -22,4 +22,18 @@ module ApplicationHelper
     controller == "subjects" || controller == "books" || controller == "music_artists" || controller == "movies"
   end
   
+  def flashes(flash)
+    html = "<div id='flashes'>"
+      if flash[:notice]
+        html << "<div id='notice'>#{flash[:notice]}</div>"
+      end
+      if flash[:warning]
+        html << "<div id='warning'>#{flash[:warning]}</div>"
+      end
+      if flash[:error]
+        html << "<div id='error'>#{flash[:error]}</div>"
+      end
+    html << "</div>"
+  end
+  
 end
