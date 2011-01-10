@@ -1,3 +1,5 @@
+<%= javascript_include_tag "favorites" %>
+
 <div class="article">
   <h2><span><%= @subject.title %></a></span></h2>
   <p class="info noprint">
@@ -16,13 +18,21 @@
 <%= link_to 'Back', polymorphic_path(params[:controller])%>
 
 
+<h2>Favorite</h2>
+<div class="article">
+  <div class="subject_favorites">
+    <%= render :partial => "/favorites/new", :locals => {:favorite => @favorite} %> 
+  </div>
+</div>
+
+
 <h2 class="comment_size_text">Comments (<%=@subject.comments.size%>)</h2>
 <%= hidden_field_tag "comment_size", @subject.comments.size, :class => "comment_size" %>
 <div class="article">
   <% @comments.each do |comment| %>
     <p class="comment">
-      <span class="date"><%=h comment.updated_at.strftime("%Y.%m.%d") %> @ <%=h comment.updated_at.strftime("%H:%M") %>
-        <span class="user"><%= link_to comment.user.full_name, nil, :id=> comment.user_id, :class=>"profile_info", :title => "Author - #{comment.user.full_name}" %></span>
+      <span class="date"><%=h comment.updated_at.strftime("%Y.%m.%d") %> @ <%=h comment.updated_at.strftime("%H:%M") %></span>
+      <span class="user"><%= link_to comment.user.full_name, nil, :id=> comment.user_id, :class=>"profile_info", :title => "Author - #{comment.user.full_name}" %></span>
     </p>
     <p class="comment_text">
       <%=comment.text%>

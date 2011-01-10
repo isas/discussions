@@ -1,5 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :comments
+  map.resources :favorites
 
   map.resources :subjects
   map.resources :books

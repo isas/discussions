@@ -119,11 +119,7 @@
               <h3 ><span>Favorites</span></h3>
 
               <ul id="category">
-                <li id="category-active"><a href="#">Selected category</a></li>
-                <li><a href="#">Category</a></li>
-                <li><a href="#">Category</a></li>
-                <li><a href="#">Category</a></li>
-                <li><a href="#">Category</a></li>
+                <%= render :partial => "/favorites/index", :locals => {:favorites => current_user.favorites} %> 
               </ul>
 
               <!--

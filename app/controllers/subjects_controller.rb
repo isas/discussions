@@ -21,6 +21,7 @@ class SubjectsController < ApplicationController
     @subject = subject_class.find(params[:id])
     @comments = @subject.comments
     @comment = Comment.new({:subject_id => @subject.id})
+    @favorite = Favorite.find_or_initialize_by_subject_id_and_user_id(@subject.id, current_user.id)
     render :template => "/subjects/show"
   end
 

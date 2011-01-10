@@ -1,0 +1,25 @@
+<% form_for favorite do |f| %>
+  <%=  flashes(flash) %>
+
+  <%=f.hidden_field :id %>
+  <%=f.hidden_field :subject_id %>
+  <table class="favorite_rating" width="100%">
+  <tr>
+    <td rowspan="2"> <b>Add to favorites</b></td>
+    <td>remove</td>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+  </tr>
+  <tr>
+    <td><%= f.radio_button :rating, "0", :class => "favorite_button", :title => "remove favorite" %></td>
+    <td><%= f.radio_button :rating, "1", :class => "favorite_button", :title => "rating - 1" %></td>
+    <td><%= f.radio_button :rating, "2", :class => "favorite_button", :title => "rating - 1" %></td>
+    <td><%= f.radio_button :rating, "3", :class => "favorite_button", :title => "rating - 1" %></td>
+    <td><%= f.radio_button :rating, "4", :class => "favorite_button", :title => "rating - 1" %></td>
+    <td><%= f.radio_button :rating, "5", :class => "favorite_button", :title => "rating - 1" %></td>
+  </tr>
+  </table>
+<%end%>
