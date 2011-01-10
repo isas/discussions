@@ -23,17 +23,10 @@ module ApplicationHelper
   end
   
   def flashes(flash)
-    html = "<div id='flashes'>"
-      if flash[:notice]
-        html << "<div id='notice'>#{flash[:notice]}</div>"
-      end
-      if flash[:warning]
-        html << "<div id='warning'>#{flash[:warning]}</div>"
-      end
-      if flash[:error]
-        html << "<div id='error'>#{flash[:error]}</div>"
-      end
-    html << "</div>"
+    html = ["<div id='flashes'>"]
+    flash.map do |key, value|
+      html << "<div id='#{key}'>#{value}</div>"
+    end
+    html.push("</div>").join
   end
-  
 end
