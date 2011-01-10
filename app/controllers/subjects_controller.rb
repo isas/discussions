@@ -66,7 +66,7 @@ class SubjectsController < ApplicationController
   
   # Right subjects symbol in parameters
   def subject_sym
-    subject_class.to_s.downcase.to_sym
+    subject_class.to_s.underscore.downcase.to_sym
   end
   
   # Right subjects path for child controllers
