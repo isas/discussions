@@ -1,3 +1,4 @@
+# Main application controller, keeps track on user
 class ApplicationController < ActionController::Base
   before_filter :autentucated?, :set_current_user
   
@@ -24,7 +25,7 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  # sets current user in User model
+  # Sets current user in User model
   def set_current_user
     User.current_user = current_user
   end

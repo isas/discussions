@@ -1,3 +1,4 @@
+# Subjects maintenance controller > Book, MusicArtist and Movie
 class SubjectsController < ApplicationController  
   @subject_class = Subject
   @subject_path = :subjects_path

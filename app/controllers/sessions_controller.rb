@@ -1,3 +1,4 @@
+# Users login/logout controller
 class SessionsController < ApplicationController
   skip_before_filter :autentucated?
   
