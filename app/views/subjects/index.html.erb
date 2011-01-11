@@ -6,7 +6,7 @@
       <span class="cat"><%= link_to subject.type, subjects_path, :title => "Category - #{subject.type}"%></span><span class="noscreen">,</span>
       <span class="user"><%= link_to subject.user.full_name, nil, :id=> subject.user.id, :class=>"profile_info", :title => "Author - #{subject.user.full_name}" %></span><span class="noscreen">,</span>
       <span class="comments"><%= link_to "Comments (#{subject.comments.size})", subject %></a></span>
-
+      <%= get_favorite(subject) %>
 
     <p><%=h truncate(subject.description.gsub(/<.*?>/,''), 256) %></p>
     

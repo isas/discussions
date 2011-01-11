@@ -23,6 +23,7 @@ function save_favorite()
                 div.hide();
                 div.html(data);
                 div.fadeIn("slow");
+                $("span.favorites").html("["+$this.val()+"]");
                 hide_flash();
                 reload_favorites();
             }

@@ -7,8 +7,9 @@
       <span class="cat"><%= link_to @subject.type, polymorphic_path(params[:controller]), :title => "Category - #{@subject.type}"%></span>
       <span class="user"><%= link_to @subject.user.full_name, nil, :id=> @subject.user_id, :class=>"profile_info", :title => "Author - #{@subject.user.full_name}" %></span>
       <span class="comments comment_size_text">Comments (<%= @subject.comments.size %>)</span>
+      <%= get_favorite(@subject) %>
   </p>
-  <p class="info noprint"><%=  categories(@subject)%></p>
+  <p class="info noprint"><%= categories(@subject)%></p>
 
   <p><%=h @subject.description %></p>
 

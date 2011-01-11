@@ -10,6 +10,10 @@ class Subject < ActiveRecord::Base
   
   before_validation_on_create :set_user
   
+  def user_favorite
+    favorites.select{|f|f.user = User.current_user}[0]
+  end
+  
   protected
   def set_user
    self.user= User.current_user
