@@ -14,17 +14,15 @@
 
   <p class="info noprint">&nbsp;</p>
 </div>
-
-<%= link_to 'Back', polymorphic_path(params[:controller])%>
-
+<br/>
 
 <h2>Favorite</h2>
-<div class="article">
+<div class="article favorites_div">
   <div class="subject_favorites">
     <%= render :partial => "/favorites/new", :locals => {:favorite => @favorite} %> 
   </div>
 </div>
-
+<br/>
 
 <h2 class="comment_size_text">Comments (<%=@subject.comments.size%>)</h2>
 <%= hidden_field_tag "comment_size", @subject.comments.size, :class => "comment_size" %>

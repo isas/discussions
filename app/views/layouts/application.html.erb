@@ -80,7 +80,7 @@
             <hr class="noscreen" />
             
             <%if subject?(params[:controller])%>
-              <p id="breadcrumbs"><span class="new_element"><%= new_button(params[:controller])%></span>
+              <p id="breadcrumbs"><span class="new_element"><%= new_button_or_back(params)%></span>
                 <%size = @subjects.size if @subjects%>
                 <%=user_name_if_params_user_name(params[:user_id], params[:controller], size) if params[:action] == "index"%>
               </p>

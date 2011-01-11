@@ -6,20 +6,20 @@
   <table class="favorite_rating" width="100%">
   <tr>
     <td rowspan="2"> <b>Add to favorites</b></td>
-    <td>remove</td>
-    <td>1</td>
-    <td>2</td>
-    <td>3</td>
-    <td>4</td>
-    <td>5</td>
+    <td title="remove form favorites">remove</td>
+    <td title="rating - 1">[1]</td>
+    <td title="rating - 2">[2]</td>
+    <td title="rating - 3">[3]</td>
+    <td title="rating - 4">[4]</td>
+    <td title="rating - 5">[5]</td>
   </tr>
   <tr>
-    <td><%= f.radio_button :rating, "0", :class => "favorite_button", :title => "remove favorite" %></td>
+    <td><%= f.radio_button :rating, "0", :class => "favorite_button", :title => "remove from favorite" %></td>
     <td><%= f.radio_button :rating, "1", :class => "favorite_button", :title => "rating - 1" %></td>
-    <td><%= f.radio_button :rating, "2", :class => "favorite_button", :title => "rating - 1" %></td>
-    <td><%= f.radio_button :rating, "3", :class => "favorite_button", :title => "rating - 1" %></td>
-    <td><%= f.radio_button :rating, "4", :class => "favorite_button", :title => "rating - 1" %></td>
-    <td><%= f.radio_button :rating, "5", :class => "favorite_button", :title => "rating - 1" %></td>
+    <td><%= f.radio_button :rating, "2", :class => "favorite_button", :title => "rating - 2" %></td>
+    <td><%= f.radio_button :rating, "3", :class => "favorite_button", :title => "rating - 3" %></td>
+    <td><%= f.radio_button :rating, "4", :class => "favorite_button", :title => "rating - 4" %></td>
+    <td><%= f.radio_button :rating, "5", :class => "favorite_button", :title => "rating - 5" %></td>
   </tr>
   </table>
 <%end%>

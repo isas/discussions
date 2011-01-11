@@ -1,6 +1,6 @@
 <%favorites = favorites.sort_by(&:rating).reverse%>
 <% favorites.each do |favorite| %>
-  <li><%= link_to "#{favorite.subject.title} (#{favorite.rating})", favorite.subject %></a></li>
+  <li><%= link_to "#{favorite.subject.title} [#{favorite.rating}]", favorite.subject, :title => "rating #{favorite.rating}" %></a></li>
 <%end%>
   
 <%# if selected category then add <li id="category-active"></li>%>

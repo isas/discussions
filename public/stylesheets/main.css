@@ -252,6 +252,7 @@ code, kbd, samp {font-family:monospace; font-size:110%;}
         text-align: center;
         vertical-align: inherit;
         border:none;
+        margin:0px;
     }
     
-    .hide {display:none;}
+    #content div.favorites_div {padding:5px;}

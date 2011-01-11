@@ -2,20 +2,9 @@
 
 <div class="article">
   <h2 id="sub_header"><span><%= current_user.full_name %> tweets</span></h2>
-  
-   <div id="flashes">
-      <% if flash[:notice] -%> 
-        <div id="notice"><%= flash[:notice] %></div>
-      <% end -%>
-      <% if flash[:warning] -%> 
-        <div id="warning"><%= flash[:warning] %></div>
-      <% end -%>
-      <% if flash[:error] -%> 
-        <div id="error"><%= flash[:error] %></div>
-      <% end -%>
-    </div>
 
-  
+  <%= flashes(flash) %>
+
   <% @tweets.each do |tweet| %>
     <div class="tweet" style="display:none;">
       <p class="comment">
@@ -27,5 +16,7 @@
       <br />
     </div>
   <%end%>
+
+  <div class='loading'></div>
 
 </div>

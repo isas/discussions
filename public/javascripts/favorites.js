@@ -20,10 +20,9 @@ function save_favorite()
             data: params,
             type: type,
             success: function(data) {
-                div.addClass("hide");
+                div.hide();
                 div.html(data);
                 div.fadeIn("slow");
-                //div.removeClass("hide");
                 hide_flash();
                 reload_favorites();
             }
@@ -48,10 +47,9 @@ function reload_favorites()
         data: {},
         type: "GET",
         success: function(data) {
-            category.addClass("hide");
+            category.hide();
             $("#category").html(data);
             category.fadeIn("slow");
-            //category.removeClass("hide");
         }
     });
 }

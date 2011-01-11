@@ -5,8 +5,12 @@ module ApplicationHelper
     text + "<span class='tab-l'></span><span class='tab-r'></span>"
   end
   
-  def new_button(controller)
-    link_to "New #{controller.underscore.humanize.singularize.downcase}", new_polymorphic_path(controller.singularize), :class => ("new_subject" if controller == "subjects")
+  def new_button_or_back(params)
+    if params[:action] == "index"
+      link_to "New #{params[:controller].underscore.humanize.singularize.downcase}", new_polymorphic_path(params[:controller].singularize), :class => ("new_subject" if params[:controller] == "subjects")
+    else
+      link_to "Back to #{params[:controller].underscore.humanize.downcase}", polymorphic_path(params[:controller])
+    end
   end
   
   def user_name_if_params_user_name(user_id, controller, size)

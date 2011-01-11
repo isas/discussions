@@ -8,6 +8,9 @@ function slide_tweets()
     var arr = $(".tweet");
     arr=arr.toArray().reverse();
     repeat_slide(arr);
+    setTimeout(function(){ 
+        $("div.loading").hide();
+    }, 10000);
 }
 
 function repeat_slide(arr)
