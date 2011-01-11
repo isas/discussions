@@ -43,6 +43,10 @@ class User < ActiveRecord::Base
     save
   end
   
+  def self.twitter_list
+    @country_list ||= find(:all, :order => "full_name asc").map{|u|[u.full_name,u.id]}
+  end
+  
   private
   # Hashes password before saving only if password has changed
   def hash_password

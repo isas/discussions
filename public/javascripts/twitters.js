@@ -1,5 +1,6 @@
 $(document).ready(function() {
     slide_tweets.call(this);
+    show_tweets.call(this);
 });
 
 
@@ -23,4 +24,13 @@ function repeat_slide(arr)
         }
         $(a).slideDown(2000);
     }, 900);
+}
+
+function show_tweets()
+{
+    $("select#twitter_name").live("change", function(){
+        var $this = $(this);
+        window.location = $this.attr("href") + "?user_id=" + $this.val();
+        return true;
+    });
 }

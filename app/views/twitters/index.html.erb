@@ -1,8 +1,12 @@
 <%= javascript_include_tag "twitters" %>
 
 <div class="article">
-  <h2 id="sub_header"><span><%= current_user.full_name %> tweets</span></h2>
-
+  <h2 id="sub_header"><span><%= @user.full_name %> tweets</span></h2>
+  
+  <div style="text-align: right; display: block; margin-top:5px;">
+    User Tweets: <%= select_tag "twitter_name", options_for_select(User.twitter_list, :selected => @user.id), :href => twitters_path %>
+  </div>
+    
   <%= flashes(flash) %>
 
   <% @tweets.each do |tweet| %>
@@ -17,6 +21,6 @@
     </div>
   <%end%>
 
-  <div class='loading'></div>
+  <%= "<div class='loading'></div>" unless flash[:error] %>
 
 </div>

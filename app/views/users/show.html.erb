@@ -20,7 +20,7 @@
 
     <p>
       <b>Twitter name:</b>
-      <%=h @user.twitter_name %>
+      <%=h link_to @user.twitter_name, twitters_path({:user_id => @user.id}) %>
     </p>
     
     <p>

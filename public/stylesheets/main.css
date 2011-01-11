@@ -155,13 +155,14 @@ code, kbd, samp {font-family:monospace; font-size:110%;}
     #content .info a {color:#6685CC;}
     #content .info a:hover {color:#FF9000;}
     
-    #content .info span.date, #content .info span.cat, #content .info span.user, #content .info span.comments {padding-left:15px;}
+    #content .info span.date, #content .info span.cat, #content .info span.user, #content .info span.comments, #content .info span.favorites{padding-left:15px;}
     #content .info span.date {background:url("/images/ico_date.gif") 0 50% no-repeat;}
     #content .info span.cat {background:url("/images/ico_cat.gif") 0 50% no-repeat; margin-left:8px;}
     #content .info span.option {background:url("/images/option.gif") 0 50% no-repeat; padding-left: 12px; margin-right:8px;}
     #content .info span.user {background:url("/images/ico_user.gif") 0 50% no-repeat; margin-left:8px;}
     #content .info span.comments {background:url("/images/ico_comments.gif") 0 50% no-repeat; margin-left:8px;}
-
+    #content .info span.favorites {background:url("/images/ico_favorite.gif") 0 50% no-repeat; margin-left:8px;}
+    
     /* Content - More */
     #content .btn-more {margin:0 0 15px 0; padding:0; border:0; position:relative;}
     #content .btn-more a {display:block; position:absolute; top:0; right:0; width:67px; _width:95px; height:21px; margin:0; padding:0 0 0 28px; background:url("/images/btn_more.gif") 0 0 no-repeat; color:#FFF; text-decoration:none;}
