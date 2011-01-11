@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password, :if => :password_changed?
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   
+  named_scope :online, lambda{{:conditions => ["last_access >= ?", Time.now - 1.minute]}}
+  
   class << self
     attr_accessor :current_user
     
@@ -23,6 +25,10 @@ class User < ActiveRecord::Base
     # Looks for user by username and email
     def authorize login, email
       find_by_user_name_and_email login, email
+    end
+    
+    def twitter_list
+      @country_list ||= find(:all, :order => "full_name asc").map{|u|[u.full_name,u.id]}
     end
   end
   
@@ -42,9 +48,10 @@ class User < ActiveRecord::Base
     PasswordReset.deliver_password_reset(self)
     save
   end
-  
-  def self.twitter_list
-    @country_list ||= find(:all, :order => "full_name asc").map{|u|[u.full_name,u.id]}
+    
+  # Is user online, true if last access <= 1 min before
+  def online?
+    (Time.now - (last_access || 1.day.ago)) <= 60
   end
   
   private

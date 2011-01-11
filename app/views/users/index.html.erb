@@ -13,17 +13,21 @@
   
   <table class="main">
     <tr>
+      <th></th>
       <th>User name</th>
       <th>Full name</th>
       <th>Twitter name</th>
+      <th>Last access</th>
       <th colspan="2">Actions</th>
     </tr>
 
     <% @users.each do |user| %>
       <tr>
+        <td class="status"><%= online_status_image(user) %></td>
         <td><%= link_to user.user_name, user, :id=>user.id, :class=>"profile_info" %></td>
         <td><%=h user.full_name %></td>
         <td><%=h user.twitter_name %></td>
+        <td><%= user.last_access %></td>
         <td><%= link_to 'Edit', edit_user_path(user), :id => "#{user.id}", :class=>"edit_user" %></td>
         <td><%= link_to 'Delete', user, :confirm => 'Are you sure?', :method => :delete %></td>
       </tr>

@@ -9,10 +9,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110109102103) do
+ActiveRecord::Schema.define(:version => 20110111185445) do
 
   create_table "comments", :force => true do |t|
     t.text     "text"
+    t.integer  "user_id"
+    t.integer  "subject_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "favorites", :force => true do |t|
+    t.integer  "rating"
     t.integer  "user_id"
     t.integer  "subject_id"
     t.datetime "created_at"
@@ -42,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20110109102103) do
     t.string   "twitter_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "last_access",  :default => '2011-01-10 21:09:25'
   end
 
 end
