@@ -257,3 +257,7 @@ code, kbd, samp {font-family:monospace; font-size:110%;}
     }
     
     #content div.favorites_div {padding:5px;}
+    
+    table tr td.status{padding:2px;width:20px;text-align:center}
+    table tr td.status img{margin-top:2px}
+    
