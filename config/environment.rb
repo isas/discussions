@@ -51,3 +51,7 @@ Rails::Initializer.run do |config|
     :password => 'luweb2009'
   }
 end
+
+Time.zone_default = nil
+ActiveRecord::Base.time_zone_aware_attributes = false
+ActiveRecord::Base.default_timezone = :local

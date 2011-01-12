@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   skip_before_filter :autentucated?, :only => [:new, :create]
   
   def index
-    @users = User.all
+    @users = params[:online] ? User.online.all : User.all
   end
 
   def show

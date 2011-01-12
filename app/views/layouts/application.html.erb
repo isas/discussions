@@ -65,7 +65,12 @@
           <li id="<%= 'active' if params[:controller] == 'movies'%>"><%= link_to menu_button("Movies"), movies_path %></li>
           <li id="<%= 'active' if params[:controller] == 'music_artists'%>"><%= link_to menu_button("Music artists"), music_artists_path %></li>
           <li id="<%= 'active' if params[:controller] == 'twitters'%>"><%= link_to menu_button("Twitter"), twitters_path %></li>
-          <li id="<%= 'active' if params[:controller] == 'users'%>"><%= link_to menu_button("Users"), users_path %></li>
+          <li id="<%= 'active' if params[:controller] == 'users' && !params[:online] %>">
+            <%= link_to menu_button("Users"), users_path %>
+          </li>
+          <li id="<%= 'active' if params[:controller] == 'users' && params[:online] %>">
+            <%= link_to menu_button("Users online"), users_path(:online => :true) %>
+          </li>
         </ul>
       </div> <!-- /tabs -->
 
