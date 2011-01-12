@@ -26,6 +26,7 @@ function save_comment()
                     $(".comment_size").val(comments_size)
                     $(".comment_size_text").html("Comments (" + comments_size + ")");
                 }
+                reload_favorites();
             }
         });
         
