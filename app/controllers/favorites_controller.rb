@@ -7,35 +7,23 @@ class FavoritesController < ApplicationController
 
   def create
     @favorite = Favorite.new(params[:favorite])
+    flash.now[:notice] = "Favorite was not created"
     if @favorite.rating > 0
       @favorite.user = current_user
       @favorite.save
       flash.now[:notice] = "Favorite rating - #{@favorite.rating}"
-    else
-      flash.now[:notice] = "Favorite was not created"
     end
     render :partial => "new", :locals => {:favorite => @favorite}
   end
   
   def update
     @favorite = Favorite.find(params[:id])
-    @favorite.update_attributes(params[:favorite])
-    
-    @favorite = destroy_if_rating_zero(@favorite)
-      
-    flash.now[:notice] = "Favorite rating - #{@favorite.rating}" unless flash[:notice]
-    render :partial => "new", :locals => {:favorite => @favorite}
-
-  end
-  
-  private
-  def destroy_if_rating_zero(favorite)
-    if favorite.rating == 0
-      favorite_new = Favorite.new({:subject_id => favorite.subject_id})
-      favorite.destroy
+    @favorite.update_attributes(params[:favorite]) 
+    flash.now[:notice] = "Favorite rating - #{@favorite.rating}"
+    if @favorite.rating == 0
       flash.now[:notice] = "Favorite was removed"
-      return favorite_new
+      @favorite = Favorite.new({:subject_id => @favorite.subject_id})
     end
-    return favorite;
+    render :partial => "new", :locals => {:favorite => @favorite}
   end
 end
