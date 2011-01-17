@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(:version => 20110111185445) do
     t.string   "twitter_name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "last_access",  :default => '2011-01-10 21:09:25'
+    t.datetime "last_access",  :default => '2011-01-11 07:56:46'
   end
 
 end

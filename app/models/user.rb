@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
     end
     
     def twitter_list
-      @country_list ||= find(:all, :order => "full_name asc").map{|u|[u.full_name,u.id]}
+      find(:all, :order => "full_name asc").map{|u|[u.full_name,u.id]}
     end
   end
   
