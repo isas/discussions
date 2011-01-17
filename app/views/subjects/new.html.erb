@@ -4,7 +4,7 @@
     <p class="info noprint">
       <span class="date"><%=h DateTime.now.strftime("%Y.%m.%d") %> @ <%=h DateTime.now.strftime("%H:%M") %></span><span class="noscreen">,</span>
       <span class="cat"><%= f.object.type.underscore.humanize %></span><span class="noscreen">,</span>
-      <span class="user"><%= link_to current_user.full_name, nil, :id=>current_user.id, :class=>"profile_info" %></span><span class="noscreen">,</span>
+      <span class="user"><%= link_to current_user.full_name, user_path(current_user), :id=>current_user.id, :class=>"profile_info" %></span><span class="noscreen">,</span>
 
     <div class="errors">
       <%= custom_error_messages_for([f.object]) %>

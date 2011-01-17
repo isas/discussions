@@ -26,7 +26,7 @@
         <td class="status"><%= online_status_image(user) %></td>
         <td><%= link_to user.user_name, user, :id=>user.id, :class=>"profile_info" %></td>
         <td><%=h user.full_name %></td>
-        <td><%=h user.twitter_name %></td>
+        <td><%=h link_to user.twitter_name, twitters_path({:user_id => user.id}) %></td>
         <td><%= user.last_access %></td>
         <td><%= link_to 'Edit', edit_user_path(user), :id => "#{user.id}", :class=>"edit_user" %></td>
         <td><%= link_to 'Delete', user, :confirm => 'Are you sure?', :method => :delete %></td>

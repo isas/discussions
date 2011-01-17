@@ -11,7 +11,7 @@ function new_user(){
   $("a#new_user").live("click", function(){
     var $this = $(this);
     var tr = $("tr.new_tr")
-    tr.html("<td><div class='loading'></div></td>");
+    tr.html("<td colspan='7'><div class='loading'></div></td>");
 
     $.ajax({
         url: "/users/new",
